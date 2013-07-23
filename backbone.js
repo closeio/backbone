@@ -783,7 +783,8 @@
     // Get a model from the set by id.
     get: function(obj) {
       if (obj == null) return void 0;
-      return this._byId[obj.id != null ? obj.id : obj.cid || obj];
+      var id = obj.id; // Fixes weird bug in minified version of code - only in Chrome 28-29
+      return this._byId[id != null ? id : obj.cid || obj];
     },
 
     // Get the model at the given index.
